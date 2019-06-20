@@ -28,3 +28,18 @@ E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CoreCompile
 E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CopyComplete
 E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.exe
 E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.pdb
+E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.exe.config
+E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.exe
+E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.pdb
+E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\Newtonsoft.Json.dll
+E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\Telegram.Bot.dll
+E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\Newtonsoft.Json.xml
+E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\Telegram.Bot.xml
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csprojAssemblyReference.cache
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot_v2.Form1.resources
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot_v2.Properties.Resources.resources
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.GenerateResource.cache
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CoreCompileInputs.cache
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CopyComplete
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.exe
+E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.pdb

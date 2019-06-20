@@ -17,13 +17,14 @@ namespace TelegramBot_v2
 {
     public partial class Form1 : Form
     {
-
+        public static string id;
         public static long ids;
         string mesage;
         public static TelegramBotClient botClient;
         public Form1()
         {
             InitializeComponent();
+            textBox2.Text = "Бот успешно запущен." + Environment.NewLine;
             botClient = new TelegramBotClient("794414690:AAG2dr2Nv-SrlJkuG929U2wv4Vc-rE4kxx0");
             botClient.OnMessage += Bot_OnMessage;
             botClient.StartReceiving();
@@ -31,19 +32,23 @@ namespace TelegramBot_v2
         }
         public int messagechat;
         public string message;
-        static async void Bot_OnMessage(object sender, MessageEventArgs e)
+        public static void Bot_OnMessage(object sender, MessageEventArgs e)
         {
             if (e.Message.Text == "/start")
             {
+                botClient.SendTextMessageAsync(e.Message.Chat.Id, "Bot started.Hello.");
                 ids = e.Message.Chat.Id;
                 UserRepository.UserIds(ids);
             }
+            // 508813007 - айди андрея
+            // 310811454 - айди стёпы
         }
         private void button1_Click(object sender, EventArgs e)
         {
             message = textBox1.Text;
-            botClient.SendTextMessageAsync(508813007, message);
+            botClient.SendTextMessageAsync(id, message);
             textBox1.Text = null;
+            textBox2.Text = "Сообщение успешно отправлено.";
 
         }
 
@@ -63,20 +68,37 @@ namespace TelegramBot_v2
         {
 
         }
-        private InputOnlineFile img;
         private async void button2_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
-            string FileUrl = openFileDialog1.FileName; 
-            MessageBox.Show("Картинка открыта");
-            // Image img = Image.FromFile(openFileDialog1.FileName);
-            using (var stream = File.Open(FileUrl, FileMode.Open))
-            {
-                var rep = await botClient.SendPhotoAsync(508813007, stream);
-            }
-            //botClient.SendPhotoAsync(508813007, "https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg", "dfd", Telegram.Bot.Types.Enums.ParseMode.Html).Wait(5000);
-            //int i = 5;
+            string FileDirectory = openFileDialog1.FileName; 
+
+            botClient.SendPhotoAsync(id, FileDirectory, "Image.", Telegram.Bot.Types.Enums.ParseMode.Html).Wait(5000);
+
+            MessageBox.Show("Картинка отправлена");
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        public string url;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            botClient.SendPhotoAsync(id, url, "Image.", Telegram.Bot.Types.Enums.ParseMode.Html);
+            textBox2.Text = "Картинка успешно отправлена.";
+            textBox3.Text = null;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            url = textBox3.Text;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            id = textBox4.Text;
         }
     }
 }
