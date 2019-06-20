@@ -13,3 +13,18 @@ E:\Coding\TelegramBot v2\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CoreComp
 E:\Coding\TelegramBot v2\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CopyComplete
 E:\Coding\TelegramBot v2\TelegramBot v2\obj\Debug\TelegramBot v2.exe
 E:\Coding\TelegramBot v2\TelegramBot v2\obj\Debug\TelegramBot v2.pdb
+E:\Coding\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.exe.config
+E:\Coding\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.exe
+E:\Coding\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.pdb
+E:\Coding\TelegramBot\TelegramBot v2\bin\Debug\Newtonsoft.Json.dll
+E:\Coding\TelegramBot\TelegramBot v2\bin\Debug\Telegram.Bot.dll
+E:\Coding\TelegramBot\TelegramBot v2\bin\Debug\Newtonsoft.Json.xml
+E:\Coding\TelegramBot\TelegramBot v2\bin\Debug\Telegram.Bot.xml
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csprojAssemblyReference.cache
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot_v2.Form1.resources
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot_v2.Properties.Resources.resources
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.GenerateResource.cache
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CoreCompileInputs.cache
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CopyComplete
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.exe
+E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.pdb

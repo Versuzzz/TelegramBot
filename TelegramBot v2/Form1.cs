@@ -10,11 +10,14 @@ using Telegram.Bot.Args;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using System.Drawing;
+using Telegram.Bot.Types.InputFiles;
 
 namespace TelegramBot_v2
 {
     public partial class Form1 : Form
     {
+
         public static long ids;
         string mesage;
         public static TelegramBotClient botClient;
@@ -38,19 +41,42 @@ namespace TelegramBot_v2
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            
             message = textBox1.Text;
             botClient.SendTextMessageAsync(508813007, message);
-            
+            textBox1.Text = null;
+
         }
 
-       
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             message = textBox1.Text;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+        private InputOnlineFile img;
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string FileUrl = openFileDialog1.FileName; 
+            MessageBox.Show("Картинка открыта");
+            // Image img = Image.FromFile(openFileDialog1.FileName);
+            using (var stream = File.Open(FileUrl, FileMode.Open))
+            {
+                var rep = await botClient.SendPhotoAsync(508813007, stream);
+            }
+            //botClient.SendPhotoAsync(508813007, "https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg", "dfd", Telegram.Bot.Types.Enums.ParseMode.Html).Wait(5000);
+            //int i = 5;
+        }
     }
 }
-
-
