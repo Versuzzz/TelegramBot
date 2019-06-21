@@ -28,8 +28,6 @@ E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CoreCompile
 E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CopyComplete
 E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.exe
 E:\Coding\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.pdb
-<<<<<<< HEAD
-=======
 E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.exe.config
 E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.exe
 E:\_GitHub\TelegramBot\TelegramBot v2\bin\Debug\TelegramBot v2.pdb
@@ -45,4 +43,3 @@ E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CoreCompil
 E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.csproj.CopyComplete
 E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.exe
 E:\_GitHub\TelegramBot\TelegramBot v2\obj\Debug\TelegramBot v2.pdb
->>>>>>> master
