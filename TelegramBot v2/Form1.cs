@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.Drawing;
 using Telegram.Bot.Types.InputFiles;
+using Telegram.Bot.Types.Enums;
 
 namespace TelegramBot_v2
 {
@@ -43,13 +44,17 @@ namespace TelegramBot_v2
             // 508813007 - айди андрея
             // 310811454 - айди стёпы
         }
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            message = textBox1.Text;
-            botClient.SendTextMessageAsync(id, message);
+
+            botClient.SendTextMessageAsync(id, message, Telegram.Bot.Types.Enums.ParseMode.Markdown);
+
+            button5.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button6.BackColor = Color.White;
             textBox1.Text = null;
             textBox2.Text = "Сообщение успешно отправлено.";
-
         }
 
 
@@ -84,9 +89,9 @@ namespace TelegramBot_v2
 
         }
         public string url;
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)  // картинка по ссылке
         {
-            botClient.SendPhotoAsync(id, url, "Image.", Telegram.Bot.Types.Enums.ParseMode.Html);
+            botClient.SendPhotoAsync(id, url, "Image.", Telegram.Bot.Types.Enums.ParseMode.Markdown);
             textBox2.Text = "Картинка успешно отправлена.";
             textBox3.Text = null;
         }
@@ -99,6 +104,67 @@ namespace TelegramBot_v2
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
             id = textBox4.Text;
+        }
+        // снизу кнопки отвечающие за формат текста
+        
+        public string textformat = null;
+         
+        
+
+        private void button4_Click(object sender, EventArgs e)  // code текст
+        {
+            button4.BackColor = Color.Green;
+            button6.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            StringBuilder s = new StringBuilder(textBox1.Text);
+            s.Insert(textBox1.SelectionStart, '`');
+            s.Insert(textBox1.SelectionStart + textBox1.SelectionLength + 1, '`');
+            textBox1.Text = s.ToString();
+            mesage = textBox1.Text;
+            textBox2.Text = "Текст поменян на code.";
+        }
+
+        private void button6_Click(object sender, EventArgs e) // жирный текст
+        {
+
+            button6.BackColor = Color.Green;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            StringBuilder s = new StringBuilder(textBox1.Text);
+            s.Insert(textBox1.SelectionStart, '*');
+            s.Insert(textBox1.SelectionStart + textBox1.SelectionLength +1 , '*');
+            textBox1.Text = s.ToString();
+            mesage = textBox1.Text;
+            textBox2.Text = "Текст поменян на жирный.";
+        }
+
+        private void button5_Click(object sender, EventArgs e) // наклонный текст
+        {
+            button5.BackColor = Color.Green;
+            button4.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            StringBuilder s = new StringBuilder(textBox1.Text);
+            s.Insert(textBox1.SelectionStart, '_');
+            s.Insert(textBox1.SelectionStart + textBox1.SelectionLength + 1, '_');
+            textBox1.Text = s.ToString();
+            mesage = textBox1.Text;
+            textBox2.Text = "Текст поменян на наклонный.";
+        }
+        public string text;
+        public string url2;
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            url2 = textBox5.Text;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            text = textBox6.Text;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            botClient.SendTextMessageAsync(id, $"< a href =\"http://example.com/url\">текст ссылки</a>", Telegram.Bot.Types.Enums.ParseMode.Html);
         }
     }
 }
