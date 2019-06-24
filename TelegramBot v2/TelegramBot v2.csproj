@@ -52,6 +52,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="Chanel.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

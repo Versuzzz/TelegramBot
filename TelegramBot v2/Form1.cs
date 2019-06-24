@@ -41,8 +41,12 @@ namespace TelegramBot_v2
                 ids = e.Message.Chat.Id;
                 UserRepository.UserIds(ids);
             }
-            // 508813007 - айди андрея
-            // 310811454 - айди стёпы
+            if(e.Message.Text == "/top")
+            {
+                Category.CategoryGame();
+                for(int i = 0; i < 2; i++)
+                botClient.SendTextMessageAsync(e.Message.Chat.Id, Category.category[i]);
+            }
         }
         
         private void button1_Click(object sender, EventArgs e)
