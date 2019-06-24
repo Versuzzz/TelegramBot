@@ -42,6 +42,8 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.AddCategory = new System.Windows.Forms.Button();
+            this.CategoryName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -182,12 +184,34 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // AddCategory
+            // 
+            this.AddCategory.Location = new System.Drawing.Point(12, 140);
+            this.AddCategory.Name = "AddCategory";
+            this.AddCategory.Size = new System.Drawing.Size(87, 23);
+            this.AddCategory.TabIndex = 13;
+            this.AddCategory.Text = "AddCategory";
+            this.AddCategory.UseVisualStyleBackColor = true;
+            this.AddCategory.Click += new System.EventHandler(this.AddCategory_Click);
+            // 
+            // CategoryName
+            // 
+            this.CategoryName.Location = new System.Drawing.Point(105, 140);
+            this.CategoryName.Multiline = true;
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.Size = new System.Drawing.Size(100, 23);
+            this.CategoryName.TabIndex = 14;
+            this.CategoryName.Text = "NameCategory";
+            this.CategoryName.TextChanged += new System.EventHandler(this.CategoryName_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(528, 304);
+            this.Controls.Add(this.CategoryName);
+            this.Controls.Add(this.AddCategory);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -225,6 +249,8 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button AddCategory;
+        private System.Windows.Forms.TextBox CategoryName;
     }
 }
 

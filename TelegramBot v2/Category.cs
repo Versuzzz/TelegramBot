@@ -27,7 +27,7 @@ namespace TelegramBot_v2
         }
         public Category(string name)
         {
-
+            Name = name;
         }
     }
 }

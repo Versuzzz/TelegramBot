@@ -41,12 +41,12 @@ namespace TelegramBot_v2
                 ids = e.Message.Chat.Id;
                 UserRepository.UserIds(ids);
             }
-            if(e.Message.Text == "/top")
-            {
-                Category.CategoryGame();
-                for(int i = 0; i < 2; i++)
-                botClient.SendTextMessageAsync(e.Message.Chat.Id, Category.category[i]);
-            }
+            //if(e.Message.Text == "/top")
+            //{
+            //    //Category.CategoryGame();
+            //    for(int i = 0; i < 2; i++)
+            //    botClient.SendTextMessageAsync(e.Message.Chat.Id, Category.category[i]);
+            //}
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -169,6 +169,40 @@ namespace TelegramBot_v2
         private void button7_Click(object sender, EventArgs e)
         {
             botClient.SendTextMessageAsync(id, $"< a href =\"http://example.com/url\">текст ссылки</a>", Telegram.Bot.Types.Enums.ParseMode.Html);
+        }
+        //
+
+        string nameCategory;
+        private void AddCategory_Click(object sender, EventArgs e)
+        {
+           
+            Category category = new Category(nameCategory);
+            if (File.Exists("categoryes.json"))
+            {
+                var s = JsonConvert.DeserializeObject<List<Category>>(File.ReadAllText("categoryes.json")) ?? new List<Category>();
+                if (!s.Contains(category))
+                {
+                    s.Add(category);
+                }
+                File.WriteAllText("categoryes.json", JsonConvert.SerializeObject(s));
+            }
+            else
+            {
+                File.Create("categoryes.json");
+                var s = JsonConvert.DeserializeObject<List<Category>>(File.ReadAllText("categoryes.json")) ?? new List<Category>();
+                if (!s.Contains(category))
+                {
+                    s.Add(category);
+                }
+                File.WriteAllText("categoryes.json", JsonConvert.SerializeObject(s));
+            }
+
+
+        }
+
+        private void CategoryName_TextChanged(object sender, EventArgs e)
+        {
+            nameCategory = CategoryName.Text;
         }
     }
 }
