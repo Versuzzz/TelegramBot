@@ -9,15 +9,13 @@ namespace TelegramBot_v2
     class Chanel
     {
         string Name;
-        string Description;
         public Chanel()
         {
         
         }
-        public Chanel(string name, string description)
+        public Chanel(string name)
         {
             Name = name;
-            Description = description;
         }
 
     }
