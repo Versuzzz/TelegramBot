@@ -34,10 +34,10 @@
             // 
             // ButtonAddCategory
             // 
-            this.ButtonAddCategory.Location = new System.Drawing.Point(128, 97);
-            this.ButtonAddCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonAddCategory.Location = new System.Drawing.Point(128, 65);
+            this.ButtonAddCategory.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonAddCategory.Name = "ButtonAddCategory";
-            this.ButtonAddCategory.Size = new System.Drawing.Size(87, 43);
+            this.ButtonAddCategory.Size = new System.Drawing.Size(103, 42);
             this.ButtonAddCategory.TabIndex = 0;
             this.ButtonAddCategory.Text = "Add";
             this.ButtonAddCategory.UseVisualStyleBackColor = true;
@@ -45,10 +45,11 @@
             // 
             // Textbox
             // 
-            this.Textbox.Location = new System.Drawing.Point(106, 41);
-            this.Textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Textbox.Location = new System.Drawing.Point(11, 31);
+            this.Textbox.Margin = new System.Windows.Forms.Padding(2);
+            this.Textbox.Multiline = true;
             this.Textbox.Name = "Textbox";
-            this.Textbox.Size = new System.Drawing.Size(128, 20);
+            this.Textbox.Size = new System.Drawing.Size(326, 30);
             this.Textbox.TabIndex = 1;
             // 
             // AddCategoryDialog
@@ -58,7 +59,7 @@
             this.ClientSize = new System.Drawing.Size(348, 172);
             this.Controls.Add(this.Textbox);
             this.Controls.Add(this.ButtonAddCategory);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddCategoryDialog";
             this.ResumeLayout(false);
             this.PerformLayout();
