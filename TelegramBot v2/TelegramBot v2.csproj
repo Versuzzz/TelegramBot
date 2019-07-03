@@ -64,6 +64,13 @@
     <Compile Include="AddCategoryDialog.Designer.cs">
       <DependentUpon>AddCategoryDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddChanellsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddChanellsDialog.Designer.cs">
+      <DependentUpon>AddChanellsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriesRepository.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Chanel.cs" />
     <Compile Include="ChanelsRepository.cs" />
@@ -81,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddCategoryDialog.resx">
       <DependentUpon>AddCategoryDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddChanellsDialog.resx">
+      <DependentUpon>AddChanellsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

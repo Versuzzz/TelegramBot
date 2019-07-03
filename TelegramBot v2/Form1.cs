@@ -30,11 +30,13 @@ namespace TelegramBot_v2
         public string url;
 
         List<Category> categories = new List<Category>();
+        List<Chanel> chanels = new List<Chanel>();
 
         public Form1()
         {
             InitializeComponent();
             UpdatePanel();
+            UpdateChannelsPanel();
             botClient = new TelegramBotClient("794414690:AAG2dr2Nv-SrlJkuG929U2wv4Vc-rE4kxx0");
             ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Бот успешно запущен.\n");
             NumberConsoleMessage++;
@@ -52,6 +54,16 @@ namespace TelegramBot_v2
                 controlPanel.Controls.Add(new Button { Text = category.Name, Size = new Size(300, 50) });
             }
             controlPanel.Controls.Add(new AddButton(this));
+        }
+        public void UpdateChannelsPanel()
+        {
+            chanellsPanel.Controls.Clear();
+            chanels = CategoriesRepository.Read();
+            foreach (var chanel in chanels)
+            {
+                chanellsPanel.Controls.Add(new Button { Text = chanel., Size = new Size(300, 50) });
+            }
+            chanellsPanel.Controls.Add(new AddButton(this));
         }
         public static void Bot_OnMessage(object sender, MessageEventArgs e)
         {
@@ -101,7 +113,6 @@ namespace TelegramBot_v2
         private void button6_Click(object sender, EventArgs e) // жирный текст
         {
 
-            button6.BackColor = Color.Green;
             StringBuilder s = new StringBuilder(textBox1.Text);
             s.Insert(textBox1.SelectionStart, '*');
             s.Insert(textBox1.SelectionStart + textBox1.SelectionLength +1 , '*');
@@ -113,9 +124,7 @@ namespace TelegramBot_v2
 
         private void button5_Click(object sender, EventArgs e) // наклонный текст
         {
-            button5.BackColor = Color.Green;
-            button4.BackColor = Color.White;
-            button6.BackColor = Color.White;
+
             StringBuilder s = new StringBuilder(textBox1.Text);
             s.Insert(textBox1.SelectionStart, '_');
             s.Insert(textBox1.SelectionStart + textBox1.SelectionLength + 1, '_');
@@ -140,13 +149,17 @@ namespace TelegramBot_v2
             botClient.SendTextMessageAsync(id, "<a href = \"http://www.example.com/\" >inline URL</a>", Telegram.Bot.Types.Enums.ParseMode.Html);
         }
 
+
+
+
+
         //private void AddChanells_Click(object sender, EventArgs e)
         //{
         //    var NameChanel = ChanellName.Text;
         //    Chanel chanel = new Chanel(NameChanel);
         //    var score = None.SelectedIndex;
         //    //categories[score]Chanels.Add(chanel);
-           
+
         //    File.WriteAllText(FilePath, JsonConvert.SerializeObject(categories));
         //}
     }
