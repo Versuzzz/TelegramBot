@@ -18,6 +18,7 @@ namespace TelegramBot_v2
 {
     public partial class Form1 : Form
     {
+        public int NumberConsoleMessage = 1;
         public static string id;
         public static long ids;
         string mesage;
@@ -25,8 +26,14 @@ namespace TelegramBot_v2
         public Form1()
         {
             InitializeComponent();
-            textBox2.Text = "Бот успешно запущен." + Environment.NewLine;
+            for (int i = 0; i < categories.Count; i++)
+            {
+                None.Items.Add(categories[i].Name);
+            }
+            categories = JsonConvert.DeserializeObject<List<Category>>(File.ReadAllText("categoryes.json")) ?? new List<Category>();
             botClient = new TelegramBotClient("794414690:AAG2dr2Nv-SrlJkuG929U2wv4Vc-rE4kxx0");
+            ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Бот успешно запущен.\n");
+            NumberConsoleMessage++;
             botClient.OnMessage += Bot_OnMessage;
             botClient.StartReceiving();
 
@@ -41,12 +48,7 @@ namespace TelegramBot_v2
                 ids = e.Message.Chat.Id;
                 UserRepository.UserIds(ids);
             }
-            //if(e.Message.Text == "/top")
-            //{
-            //    //Category.CategoryGame();
-            //    for(int i = 0; i < 2; i++)
-            //    botClient.SendTextMessageAsync(e.Message.Chat.Id, Category.category[i]);
-            //}
+            
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -58,7 +60,8 @@ namespace TelegramBot_v2
             button4.BackColor = Color.White;
             button6.BackColor = Color.White;
             textBox1.Text = null;
-            textBox2.Text = "Сообщение успешно отправлено.";
+            ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Сообщение успешно отправлено.\n");
+            NumberConsoleMessage++;
         }
 
 
@@ -73,20 +76,7 @@ namespace TelegramBot_v2
 
         }
 
-        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
-        private async void button2_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
-                return;
-            string FileDirectory = openFileDialog1.FileName; 
-
-            botClient.SendPhotoAsync(id, FileDirectory, "Image.", Telegram.Bot.Types.Enums.ParseMode.Html).Wait(5000);
-
-            MessageBox.Show("Картинка отправлена");
-        }
+       
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -95,8 +85,9 @@ namespace TelegramBot_v2
         public string url;
         private void button3_Click(object sender, EventArgs e)  // картинка по ссылке
         {
-            botClient.SendPhotoAsync(id, url, "Image.", Telegram.Bot.Types.Enums.ParseMode.Markdown);
-            textBox2.Text = "Картинка успешно отправлена.";
+            botClient.SendPhotoAsync(id, url, "Картинка.", Telegram.Bot.Types.Enums.ParseMode.Markdown);
+            ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Картиинка успешно отправлена.\n");
+            NumberConsoleMessage++;
             textBox3.Text = null;
         }
 
@@ -125,7 +116,8 @@ namespace TelegramBot_v2
             s.Insert(textBox1.SelectionStart + textBox1.SelectionLength + 1, '`');
             textBox1.Text = s.ToString();
             mesage = textBox1.Text;
-            textBox2.Text = "Текст поменян на code.";
+            ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Выделенный текст успешно изменен на code.\n");
+            NumberConsoleMessage++;
         }
 
         private void button6_Click(object sender, EventArgs e) // жирный текст
@@ -139,7 +131,8 @@ namespace TelegramBot_v2
             s.Insert(textBox1.SelectionStart + textBox1.SelectionLength +1 , '*');
             textBox1.Text = s.ToString();
             mesage = textBox1.Text;
-            textBox2.Text = "Текст поменян на жирный.";
+            ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Выделенный текст успешно изменен на жирный.\n");
+            NumberConsoleMessage++;
         }
 
         private void button5_Click(object sender, EventArgs e) // наклонный текст
@@ -152,7 +145,8 @@ namespace TelegramBot_v2
             s.Insert(textBox1.SelectionStart + textBox1.SelectionLength + 1, '_');
             textBox1.Text = s.ToString();
             mesage = textBox1.Text;
-            textBox2.Text = "Текст поменян на наклонный.";
+            ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Выделенный текст успешно изменен на наклонный.\n");
+            NumberConsoleMessage++;
         }
         public string text;
         public string url2;
@@ -172,37 +166,57 @@ namespace TelegramBot_v2
         }
         //
 
-        string nameCategory;
+        
         private void AddCategory_Click(object sender, EventArgs e)
         {
            
+            
+            var nameCategory = CategoryName.Text;
+            None.Items.Add(nameCategory);
             Category category = new Category(nameCategory);
+            CategoryName.Text = null;
+            
             if (File.Exists("categoryes.json"))
             {
                 var s = JsonConvert.DeserializeObject<List<Category>>(File.ReadAllText("categoryes.json")) ?? new List<Category>();
-                if (!s.Contains(category))
-                {
-                    s.Add(category);
-                }
+                ConsoleRichTextBox.AppendText($"{NumberConsoleMessage}.Категория успешно добавлена.\n");
+                s.Add(category);
+                categories.Add(category);
                 File.WriteAllText("categoryes.json", JsonConvert.SerializeObject(s));
             }
             else
             {
                 File.Create("categoryes.json");
-                var s = JsonConvert.DeserializeObject<List<Category>>(File.ReadAllText("categoryes.json")) ?? new List<Category>();
-                if (!s.Contains(category))
-                {
-                    s.Add(category);
-                }
-                File.WriteAllText("categoryes.json", JsonConvert.SerializeObject(s));
             }
-
+          
 
         }
 
-        private void CategoryName_TextChanged(object sender, EventArgs e)
+        List<Category> categories = JsonConvert.DeserializeObject<List<Category>>(File.ReadAllText("categoryes.json")) ?? new List<Category>();
+
+
+        private void ActiveCategory_TextChanged(object sender, EventArgs e)
         {
-            nameCategory = CategoryName.Text;
+        }
+
+        private void ChanellName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddChanells_Click(object sender, EventArgs e)
+        {
+            var NameChanel = ChanellName.Text;
+            Chanel chanel = new Chanel(NameChanel);
+            var score = None.SelectedIndex;
+            //categories[score]Chanels.Add(chanel);
+           
+            File.WriteAllText("categoryes.json", JsonConvert.SerializeObject(categories));
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

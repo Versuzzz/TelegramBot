@@ -15,7 +15,6 @@ namespace TelegramBot_v2
 {
     class UserRepository
     {
-        private const string FilePath = "usersid.json";
         public static void UserIds(long userid)
         {
 

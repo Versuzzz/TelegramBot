@@ -18,9 +18,9 @@ namespace TelegramBot_v2
 {
     class Category
     {
-        string Name;
+        public string Name;
         
-        List<Chanel> Chanels = new List<Chanel>();
+        public List<Chanel> Chanels = new List<Chanel>();
         public Category()
         {
 
