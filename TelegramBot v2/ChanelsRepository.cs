@@ -10,7 +10,7 @@ namespace TelegramBot_v2
 
     static class ChanelsRepository
     {
-        private static readonly string FilePath = "categoryes.json";
+        private static readonly string FilePath = "categories.json";
         public static void Create(string nameCategory)
         {
             var categories = Read();

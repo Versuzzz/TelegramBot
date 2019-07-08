@@ -30,6 +30,12 @@ namespace TelegramBot_v2
             else
             {
                 File.Create("usersid.json");
+                var s = JsonConvert.DeserializeObject<List<long>>(File.ReadAllText("usersid.json")) ?? new List<long>();
+                if (!s.Contains(userid))
+                {
+                    s.Add(userid);
+                }
+                File.WriteAllText("usersid.json", JsonConvert.SerializeObject(s));
             }
         }
     }
